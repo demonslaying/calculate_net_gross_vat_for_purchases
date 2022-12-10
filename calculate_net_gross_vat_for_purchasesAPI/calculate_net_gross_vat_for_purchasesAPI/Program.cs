@@ -4,6 +4,7 @@ global using System.ComponentModel.DataAnnotations.Schema;
 global using calculate_net_gross_vat_for_purchasesAPI.Models;
 global using calculate_net_gross_vat_for_purchasesAPI.Data;
 global using calculate_net_gross_vat_for_purchasesAPI.Services.CountryService;
+global using calculate_net_gross_vat_for_purchasesAPI.Services.VATRateService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ICountryService, CountryService>();
+builder.Services.AddScoped<IVATRateService, VATRateService>();
 builder.Services.AddDbContext<DataContext>();
 builder.Services.AddCors(options => options.AddPolicy(name: "CountryOrigins",
     policy =>
