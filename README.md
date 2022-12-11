@@ -28,3 +28,6 @@ dotnet ef database update -> Updates the database to the last migration
 
 ### To install the Angular CLI
 
+ng new [project-name]
+
+ng g s [service-name] --skip-tests -> To create a service

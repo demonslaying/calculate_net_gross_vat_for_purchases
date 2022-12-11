@@ -3,5 +3,7 @@
     public interface IVATRateService
     {
         Task<List<VATRate>> GetAllVATRates();
+
+        Task<List<VATRate?>> GetVATRatesByCountryId(int id);
     }
 }
