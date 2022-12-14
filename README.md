@@ -15,7 +15,7 @@ Microsoft.EntityFrameworkCore.Design (7.0.0)
 
 Microsoft.EntityFrameworkCore.SqlServer (7.0.0)
 
-## Finally run the follwing commands to start working with Entity Framework:
+## Finally run the following commands to start working with Entity Framework:
 
 dotnet ef migrations add InitialCreate -> To create de database
 
@@ -24,6 +24,8 @@ dotnet ef migrations remove -> To remove last migration
 dotnet ef database update 0 -> To unapply all migration
 
 dotnet ef database update -> Updates the database to the last migration
+
+NOTE: The database was configured in Microsoft SQL Server Management Studio with SQL Express 
 
 ## Angular Commands
 
