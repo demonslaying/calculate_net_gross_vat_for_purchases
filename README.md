@@ -34,3 +34,15 @@ ng new [project-name] -> To install Angular
 ng g s [service-name] --skip-tests -> To create a service
 
 ng serve -o -> To start the front end project
+
+
+# To improve/implement:
+- Media queries for different browsers
+
+- Despite validations are implemented, they can be implemented from the Angular Validators class 
+
+- Change the vanilla HTML UI to the Angular Material
+
+- Making a service that manages the state of the application through Dependency Injection in the constructor of each component
+
+- Separate the layout to each component corresponding to each DIV, for this project will be 3 components
