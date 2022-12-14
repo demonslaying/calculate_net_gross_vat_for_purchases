@@ -19,16 +19,47 @@
 </div>-->
 
 <div>
-  <p>Country
-    <select name="Country" id="">
-      <option *ngFor="let country of countries ">{{country.name}}</option>
+  <label for="countries">Country</label>
+    <select name="country.name" id="countries" (change)="selectCountryVATRates($event)">
+      <option *ngFor="let country of countries" [value]="country.id" >{{country.name}}</option>
     </select>
-  </p>
 <hr/>
 </div>
-  <p>
-    VAT rate
-  </p>
 <div>
-
+  <p>VAT rate</p>
+  <div *ngFor="let vatRate of vatRates; let index = index" >
+    <input type="checkbox" name="vatRate" [id]="vatRate.id" [checked]="selectedIndex === index"
+      (change)="selectCheckBox($event, index, vatRate.rate)" [value]="vatRate.rate" />
+    <label >{{vatRate.rate}}%</label>
+  </div>
+</div>
+<hr/>
+<div>
+  <div class="form-group" [class.has-error]="priceWithoutVATControl.invalid && priceWithoutVATControl.touched">
+    <input type="checkbox" name="priceWithoutVAT" id="priceWithoutVATCheckbox" (change)="enableInputText($event)" />
+    <label class="control-label">Price without VAT</label>
+    <input type="text" id="priceWithoutVATText" [disabled]="isReadOnlyOne" 
+      [value]="priceWithoutVAT" (focusout)="calculateWithVAT($event)" [(ngModel)]="priceWithoutVATText" 
+      #priceWithoutVATControl="ngModel" required />
+    <span class="help-block" style="color:red;" 
+      *ngIf="priceWithoutVATControl.invalid && priceWithoutVATControl.touched">
+    Price without VAT is required
+    </span>
+  </div>
+  <div>  
+    <input type="checkbox" name="Tax" id="Tax" (change)="enableInputText($event)" />
+    <label>Value-Added Tax</label>
+    <input type="text" id="Tax" [disabled]="isReadOnlyTwo" [value]="tax" required />
+  </div>
+  <div class="form-group" [class.has-error]="priceWithVATControl.invalid && priceWithVATControl.touched">
+    <input type="checkbox" name="priceWithoutVAT" id="priceWithVATCheckbox" (change)="enableInputText($event)" />
+    <label class="control-label">Price incl. VAT</label>
+    <input type="text" id="priceWithVATText" [disabled]="isReadOnlyThree" 
+      [value]="priceWithVAT" (focusout)="calculateWithoutVAT($event)" [(ngModel)]="priceWithVATText" 
+      #priceWithVATControl="ngModel" required />
+    <span class="help-block" style="color:red;" 
+      *ngIf="priceWithVATControl.invalid && priceWithVATControl.touched">
+    Price with VAT is required
+    </span>
+  </div>
 </div>

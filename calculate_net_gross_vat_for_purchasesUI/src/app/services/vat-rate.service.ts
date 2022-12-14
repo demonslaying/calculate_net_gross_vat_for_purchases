@@ -12,7 +12,7 @@ export class VatRateService {
 
   constructor(private http: HttpClient) { }
 
-  public getVATRates() : Observable<VATRate[]> {
-    return this.http.get<VATRate[]>(`${this.apiUrl}${this.url}`);
+  public getVATRatesbByCountryId(countryId: number) : Observable<VATRate[]> {
+    return this.http.get<VATRate[]>(`${this.apiUrl}${this.url}/` + countryId);
   }
 }
